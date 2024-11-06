@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { RuneTotals, fetchRuneTotals } from "@/services/runeStatsService";
+import { fetchRuneTotals } from "@/services/runeStatsService";
 import TableAnalytic from "@/components/pages/home";
 import { fetchRuneStats } from "@/services/runeService";
 

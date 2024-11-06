@@ -1,9 +1,8 @@
 "use client";
-import { ChevronUp, Info, Settings } from "lucide-react";
 import { InfoSVG, SortIcon } from "../svgs";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { RuneApiResponse, fetchRuneStats } from "@/services/runeService";
+import { useState } from "react";
+import { RuneApiResponse } from "@/services/runeService";
 
 type SortDirection = "asc" | "desc" | null;
 type SortField =
@@ -433,8 +432,3 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 };
 
 export default RuneTable;
-
-const calculateTxnChange = (current: number, previous: number) => {
-  if (previous === 0) return 0;
-  return ((current - previous) / previous) * 100;
-};

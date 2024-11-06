@@ -1,10 +1,9 @@
 "use client";
 import Header from "@/components/common/layout/header";
 import RuneTable from "@/components/common/table/rune-table";
-import TabSwitcher from "@/components/common/tabs/header-tabs";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { RuneTotals, fetchRuneTotals } from "@/services/runeStatsService";
+import { useState } from "react";
+import { RuneTotals } from "@/services/runeStatsService";
 import { RuneApiResponse } from "@/services/runeService";
 import FilterModal from "@/components/common/modals/filter/filter-modal";
 
@@ -22,10 +21,8 @@ const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
     return num.toFixed(6);
   };
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-  // ... other state
 
   const handleApplyFilters = () => {
-    // Apply filters to your data
     setIsFilterModalOpen(false);
   };
   return (

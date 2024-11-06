@@ -1,7 +1,7 @@
 "use client";
 import { X } from "lucide-react";
 import React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 interface FilterModalProps {
   isOpen: boolean;
@@ -39,7 +39,6 @@ const FilterModal = ({ isOpen, onClose, onApply }: FilterModalProps) => {
     holders: { min: "100", max: "10000" },
   });
 
-  // Separate state for ranges
   const [volumeRange, setVolumeRange] = useState<RangeState>({
     values: [0.00008, 10],
     dragging: null,
