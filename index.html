@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESTful API</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 id="api-documentation-for-frontend-developer">
+        API Documentation for Frontend Developer
+      </h1>
+      <p>Two main endpoints:</p>
+      <ol>
+        <li>
+          <strong>Get statistics of all runes</strong>:
+          <code>/api/runes/stats</code>
+        </li>
+        <li>
+          <strong>Get general statistics</strong>:
+          <code>/api/runes/totals</code>
+        </li>
+      </ol>
+      <p>
+        Below is detailed information about each endpoint, including example
+        responses and field descriptions.
+      </p>
+      <hr />
+      <h2 id="get-statistics-of-all-runes">1. Get Statistics of All Runes</h2>
+      <ul>
+        <li><strong>URL</strong>: <code>/api/runes/stats</code></li>
+        <li><strong>Method</strong>: <code>GET</code></li>
+        <li>
+          <strong>Description</strong>: Returns an array containing statistical
+          data for each rune.
+        </li>
+      </ul>
+      <h3 id="sample-request">Sample Request</h3>
+      <p><code>GET /api/runes/stats HTTP/1.1 Host: api.mosaikbtc.com</code></p>
+      <h3 id="sample-response">Sample Response</h3>
+      <pre
+        class="language-json"
+      ><code class="prism { language-json">  <span class="token string">"runes"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">"rune_name"</span><span class="token punctuation">:</span> <span class="token string">"UNCOMMON•GOODS"</span><span class="token punctuation">,</span>
+      <span class="token string">"rune_number"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token string">"symbol"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      <span class="token string">"divisibility"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token string">"image_uri"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      <span class="token string">"price"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"market_cap"</span><span class="token punctuation">:</span> <span class="token string">"114.6051452720"</span><span class="token punctuation">,</span>
+        <span class="token string">"floor_unit_price_value"</span><span class="token punctuation">:</span> <span class="token string">"1.1571552511"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_1d"</span><span class="token punctuation">:</span> <span class="token string">"0.8717486306"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_7d"</span><span class="token punctuation">:</span> <span class="token string">"1.3570397740"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_30d"</span><span class="token punctuation">:</span> <span class="token string">"1.5000000000"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"volume"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"volume_1h"</span><span class="token punctuation">:</span> <span class="token string">"0.0000000000"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_1d"</span><span class="token punctuation">:</span> <span class="token string">"4108649"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_7d"</span><span class="token punctuation">:</span> <span class="token string">"64330313"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_30d"</span><span class="token punctuation">:</span> <span class="token string">"288546788"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_all"</span><span class="token punctuation">:</span> <span class="token string">"3227268539"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"total_txns"</span><span class="token punctuation">:</span> <span class="token number">23345</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_1d"</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_7d"</span><span class="token punctuation">:</span> <span class="token number">367</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_30d"</span><span class="token punctuation">:</span> <span class="token number">1327</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"holder_count"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"holder_count"</span><span class="token punctuation">:</span> <span class="token number">250674</span><span class="token punctuation">,</span>
+        <span class="token string">"smart_holders_count"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"pending_count_tx"</span><span class="token punctuation">:</span> <span class="token number">120</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">"rune_name"</span><span class="token punctuation">:</span> <span class="token string">"STUPID•SILLY•CAT"</span><span class="token punctuation">,</span>
+      <span class="token string">"rune_number"</span><span class="token punctuation">:</span> <span class="token number">73441</span><span class="token punctuation">,</span>
+      <span class="token string">"symbol"</span><span class="token punctuation">:</span> <span class="token string">"🍭"</span><span class="token punctuation">,</span>
+      <span class="token string">"divisibility"</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+      <span class="token string">"image_uri"</span><span class="token punctuation">:</span> <span class="token string">"https://ord-mirror.magiceden.dev/content/821a6ca5bad9be80deee4ae3c7982746a46221359f8d0ca3f51b8f529f05768ci0"</span><span class="token punctuation">,</span>
+      <span class="token string">"price"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"market_cap"</span><span class="token punctuation">:</span> <span class="token string">"9.6000000000"</span><span class="token punctuation">,</span>
+        <span class="token string">"floor_unit_price_value"</span><span class="token punctuation">:</span> <span class="token string">"2.1333333333"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_1d"</span><span class="token punctuation">:</span> <span class="token string">"0.9142860234"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_7d"</span><span class="token punctuation">:</span> <span class="token string">"0.7748818210"</span><span class="token punctuation">,</span>
+        <span class="token string">"delta_floor_30d"</span><span class="token punctuation">:</span> <span class="token string">"1.2000000000"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"volume"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"volume_1h"</span><span class="token punctuation">:</span> <span class="token string">"0.0338155600"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_1d"</span><span class="token punctuation">:</span> <span class="token string">"9245080"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_7d"</span><span class="token punctuation">:</span> <span class="token string">"89912320"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_30d"</span><span class="token punctuation">:</span> <span class="token string">"210013356"</span><span class="token punctuation">,</span>
+        <span class="token string">"volume_all"</span><span class="token punctuation">:</span> <span class="token string">"5915403531"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"total_txns"</span><span class="token punctuation">:</span> <span class="token number">18613</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count"</span><span class="token punctuation">:</span> <span class="token number">36</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_1d"</span><span class="token punctuation">:</span> <span class="token number">66</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_7d"</span><span class="token punctuation">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+        <span class="token string">"txn_count_30d"</span><span class="token punctuation">:</span> <span class="token number">1466</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"holder_count"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"holder_count"</span><span class="token punctuation">:</span> <span class="token number">1815</span><span class="token punctuation">,</span>
+        <span class="token string">"smart_holders_count"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"pending_count_tx"</span><span class="token punctuation">:</span> <span class="token number">23</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// More runes...</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h3 id="field-descriptions">Field Descriptions</h3>
+      <h4 id="main-rune-fields">Main Rune Fields</h4>
+      <ul>
+        <li>
+          <strong>rune_name</strong> (<code>string</code>): The name of the
+          rune.
+        </li>
+        <li>
+          <strong>rune_number</strong> (<code>number</code>): The unique number
+          of the rune.
+        </li>
+        <li>
+          <strong>symbol</strong> (<code>string</code> | <code>null</code>): The
+          symbol of the rune, if available.
+        </li>
+        <li>
+          <strong>divisibility</strong> (<code>number</code>): The number of
+          decimal places the rune can be divided into.
+        </li>
+        <li>
+          <strong>image_uri</strong> (<code>string</code> | <code>null</code>):
+          URL of the rune’s image, if available.
+        </li>
+      </ul>
+      <h4 id="price--object-price-information">
+        <strong>price</strong> (object): Price Information
+      </h4>
+      <ul>
+        <li>
+          <strong>market_cap</strong> (<code>string</code>): Market
+          capitalization of the rune.
+        </li>
+        <li>
+          <strong>floor_unit_price_value</strong> (<code>string</code>): Current
+          floor price per unit of the rune.
+        </li>
+        <li>
+          <strong>delta_floor_1d</strong> (<code>string</code>): Change in floor
+          price over the last 1 day.
+        </li>
+        <li>
+          <strong>delta_floor_7d</strong> (<code>string</code>): Change in floor
+          price over the last 7 days.
+        </li>
+        <li>
+          <strong>delta_floor_30d</strong> (<code>string</code>): Change in
+          floor price over the last 30 days.
+        </li>
+      </ul>
+      <h4 id="volume--object-trading-volume-information">
+        <strong>volume</strong> (object): Trading Volume Information
+      </h4>
+      <ul>
+        <li>
+          <strong>volume_1h</strong> (<code>string</code>): Trading volume over
+          the last hour.
+        </li>
+        <li>
+          <strong>volume_1d</strong> (<code>string</code>): Trading volume over
+          the last 24 hours.
+        </li>
+        <li>
+          <strong>volume_7d</strong> (<code>string</code>): Trading volume over
+          the last 7 days.
+        </li>
+        <li>
+          <strong>volume_30d</strong> (<code>string</code>): Trading volume over
+          the last 30 days.
+        </li>
+        <li>
+          <strong>volume_all</strong> (<code>string</code>): Total trading
+          volume since inception.
+        </li>
+      </ul>
+      <h4 id="transactions--object-transaction-information">
+        <strong>transactions</strong> (object): Transaction Information
+      </h4>
+      <ul>
+        <li>
+          <strong>total_txns</strong> (<code>number</code>): Total number of
+          transactions.
+        </li>
+        <li>
+          <strong>txn_count</strong> (<code>number</code>): Number of
+          transactions over the last period (implementation-dependent).
+        </li>
+        <li>
+          <strong>txn_count_1d</strong> (<code>number</code>): Number of
+          transactions over the last 24 hours.
+        </li>
+        <li>
+          <strong>txn_count_7d</strong> (<code>number</code>): Number of
+          transactions over the last 7 days.
+        </li>
+        <li>
+          <strong>txn_count_30d</strong> (<code>number</code>): Number of
+          transactions over the last 30 days.
+        </li>
+      </ul>
+      <h4 id="holder_count--object-holder-information">
+        <strong>holder_count</strong> (object): Holder Information
+      </h4>
+      <ul>
+        <li>
+          <strong>holder_count</strong> (<code>number</code>): Total number of
+          rune holders.
+        </li>
+        <li>
+          <strong>smart_holders_count</strong> (<code>number</code>): Number of
+          “smart” holders (definition may vary).
+        </li>
+      </ul>
+      <h4 id="pending_count_tx--number-pending-transactions-count">
+        <strong>pending_count_tx</strong> (<code>number</code>): Pending
+        Transactions Count
+      </h4>
+      <ul>
+        <li>Number of transactions that are pending or in processing.</li>
+      </ul>
+      <h3 id="notes">Notes</h3>
+      <ul>
+        <li>
+          Numeric values presented as strings (e.g.,
+          <code>"market_cap": "114.6051452720"</code>) should be converted to
+          numbers on the frontend for mathematical operations.
+        </li>
+        <li>
+          Fields may have <code>null</code> values; ensure your application
+          handles such cases appropriately.
+        </li>
+        <li>
+          Price changes (<code>delta_floor_1d</code>,
+          <code>delta_floor_7d</code>, <code>delta_floor_30d</code>) are
+          typically represented in relative units or percentages.
+        </li>
+      </ul>
+      <hr />
+      <h2 id="get-general-statistics">2. Get General Statistics</h2>
+      <ul>
+        <li><strong>URL</strong>: <code>/api/runes/totals</code></li>
+        <li><strong>Method</strong>: <code>GET</code></li>
+        <li>
+          <strong>Description</strong>: Returns general statistics across all
+          runes.
+        </li>
+      </ul>
+      <h3 id="sample-request-1">Sample Request</h3>
+      <p><code>GET /api/runes/totals HTTP/1.1 Host: api.mosaikbtc.com</code></p>
+      <h3 id="sample-response-1">Sample Response</h3>
+      <pre
+        class="language-json"
+      ><code class="prism  language-json"><span class="token punctuation">{</span>
+  <span class="token string">"total_volume_1h"</span><span class="token punctuation">:</span> <span class="token string">"10.1234000000"</span><span class="token punctuation">,</span>
+  <span class="token string">"total_volume_24h"</span><span class="token punctuation">:</span> <span class="token string">"100.9876000000"</span><span class="token punctuation">,</span>
+  <span class="token string">"total_market_cap"</span><span class="token punctuation">:</span> <span class="token string">"1000000.2300000000"</span><span class="token punctuation">,</span>
+  <span class="token string">"total_wallets_holders"</span><span class="token punctuation">:</span> <span class="token number">150000</span><span class="token punctuation">,</span>
+  <span class="token string">"total_active_wallets_24h"</span><span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
+  <span class="token string">"created_at"</span><span class="token punctuation">:</span> <span class="token string">"2024-10-15T13:17:38.080Z"</span><span class="token punctuation">,</span>
+  <span class="token string">"updated_at"</span><span class="token punctuation">:</span> <span class="token string">"2024-10-15T13:17:38.080Z"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h3 id="field-descriptions-1">Field Descriptions</h3>
+      <ul>
+        <li>
+          <strong>total_volume_1h</strong> (<code>string</code>): Total trading
+          volume of all runes over the last hour.
+        </li>
+        <li>
+          <strong>total_volume_24h</strong> (<code>string</code>): Total trading
+          volume of all runes over the last 24 hours.
+        </li>
+        <li>
+          <strong>total_market_cap</strong> (<code>string</code>): Total market
+          capitalization of all runes.
+        </li>
+        <li>
+          <strong>total_wallets_holders</strong> (<code>number</code>): Total
+          number of wallets holding runes.
+        </li>
+        <li>
+          <strong>total_active_wallets_24h</strong> (<code>number</code>): Total
+          number of active wallets over the last 24 hours
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

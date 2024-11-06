@@ -2,15 +2,60 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const harmonyOS = localFont({
+  src: [
+    {
+      path: "./fonts/HarmonyOS_Sans_Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Thin.ttf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Regular_Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Medium_Italic.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Bold_Italic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Light_Italic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "./fonts/HarmonyOS_Sans_Thin_Italic.ttf",
+      weight: "100",
+      style: "italic",
+    },
+  ],
+  variable: "--font-harmony",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${harmonyOS.variable} font-harmony antialiased`}>
         {children}
       </body>
     </html>
