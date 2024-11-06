@@ -164,7 +164,6 @@ const FilterModal = ({ isOpen, onClose, onApply }: FilterModalProps) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
       <div className="bg-[#000] rounded-[20px] max-w-[520px] w-full">
-        {/* Header */}
         <div className="flex justify-between items-center px-[58px] py-[33px] border-b border-[#222222]">
           <h2 className="text-white font-medium text-[20px]">Filters</h2>
           <button
