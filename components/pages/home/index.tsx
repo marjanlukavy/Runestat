@@ -11,14 +11,20 @@ interface TableAnalyticProps {
   stats: RuneTotals | null;
   loading: boolean;
   dataTable: RuneApiResponse;
+  price: number;
 }
 
-const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
+const TableAnalytic = ({
+  stats,
+  loading,
+  dataTable,
+  price,
+}: TableAnalyticProps) => {
   const [selectedTab, setSelectedTab] = useState<"runes" | "mints">("runes");
 
   const formatBTC = (value: string) => {
     const num = parseFloat(value);
-    return num.toFixed(6);
+    return num.toFixed(2);
   };
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
@@ -29,7 +35,7 @@ const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
     <div className="max-w-[1722px] mx-auto w-full px-4">
       <Header />
 
-      <div className="flex flex-col gap-[25px] mt-[30px]">
+      <div className="flex flex-col gap-[25px] mt-[30px] pb-[100px]">
         <div className="w-full bg-[#13171B] rounded-[13px] flex max-w-[448px]">
           <button
             onClick={() => setSelectedTab("runes")}
@@ -98,6 +104,9 @@ const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
                     ? "..."
                     : `${formatBTC(stats?.total_volume_1h || "0")} BTC`}
                 </span>
+                <span className="text-[#656565] font-medium text-[14px] leading-[16.41px]">
+                  ${(price * (stats?.total_volume_1h as any)).toFixed(2)}
+                </span>
               </div>
 
               <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px]">
@@ -108,6 +117,10 @@ const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
                   {loading
                     ? "..."
                     : `${formatBTC(stats?.total_market_cap || "0")} BTC`}
+                </span>{" "}
+                <span className="text-[#656565] font-medium text-[14px] leading-[16.41px]">
+                  {" "}
+                  ${(price * (stats?.total_market_cap as any)).toFixed(2)}
                 </span>
               </div>
             </div>
@@ -162,9 +175,7 @@ const TableAnalytic = ({ stats, loading, dataTable }: TableAnalyticProps) => {
           </div>
         </div>
 
-        <div>
-          <RuneTable dataTable={dataTable} />
-        </div>
+        <RuneTable dataTable={dataTable} />
       </div>
       <FilterModal
         isOpen={isFilterModalOpen}

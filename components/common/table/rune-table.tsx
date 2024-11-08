@@ -118,11 +118,11 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
     <div className="bg-[#131718] rounded-[20px] overflow-hidden">
       <div className="w-full overflow-x-auto scrollbar-thin scrollbar-track-[#222222] scrollbar-thumb-[#BC4F2A]">
         <table className="w-full border-collapse min-w-[1200px]">
-          <thead className="border-b border-[#222222] text-[#8D8D8D] sticky top-0  z-20">
+          <thead className="border-b border-[#222222] text-[#8D8D8D] sticky top-0 z-20 h-[73px] bg-[#131718]">
             <tr className="font-harmony py-4">
               {/* RUNE */}
               <th className="text-left font-normal z-30">
-                <div className="px-4 py-4">
+                <div className="px-4 py-4 h-[73px] flex items-center">
                   <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                     RUNE
                   </span>
@@ -131,7 +131,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* PRICE */}
               <th className="text-left font-normal">
-                <div className="flex items-center gap-2 px-4">
+                <div className="flex items-center gap-2 px-4 h-[73px]">
                   <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                     PRICE
                   </span>
@@ -141,7 +141,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* VOLUME */}
               <th className="text-center" colSpan={2}>
-                <div className="border-x border-[#222222] py-[10px]">
+                <div className="border-x border-[#222222] h-[73px]">
                   <div className="flex justify-center gap-1 items-center py-[10px]">
                     <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                       VOLUME
@@ -156,7 +156,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* MARKET CAP */}
               <th className="text-center font-normal relative">
-                <div className="flex gap-1 w-full justify-between px-4 items-center py-[20px] absolute bottom-0">
+                <div className="flex gap-1 w-full justify-between px-4 items-center py-[20px] absolute bottom-0 h-[73px]">
                   <span className="font-medium text-[13px] leading-[15.24px] text-[#C4C4C4]">
                     MARKET CAP
                   </span>
@@ -177,7 +177,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* TRANSACTIONS */}
               <th className="text-center" colSpan={3}>
-                <div className="border-x border-[#222222] py-[10px]">
+                <div className="border-x border-[#222222] h-[73px]">
                   <div className="flex justify-center gap-1 items-center py-[10px]">
                     <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                       TRANSACTIONS
@@ -193,7 +193,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* HOLDERS */}
               <th className="text-center" colSpan={2}>
-                <div className="border-r border-[#222222]">
+                <div className="border-r border-[#222222] h-[73px]">
                   <div className="flex justify-center gap-1 items-center py-[10px]">
                     <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                       HOLDERS
@@ -208,7 +208,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
 
               {/* Settings */}
               <th className="sticky right-0 bg-[#13171B] z-30">
-                <div className="flex justify-center p-2">
+                <div className="flex justify-center p-2 h-[73px]">
                   <button className="flex items-center justify-center gap-1 md:gap-3 bg-[#1B1F22] rounded-[27px] w-full self-center p-2  md:p-3 max-w-[103px]">
                     <div className="relative md:size-4 size-3 md:block hidden">
                       <Image
@@ -232,7 +232,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 className="border-b bg-[#131718] border-[#222222] transition-colors duration-200 group shadow-row"
               >
                 {/* RUNE - Sticky Column */}
-                <td className=" px-4 sm:px-6 py-3 sm:py-4">
+                <td className=" px-4 sm:px-4 py-3 sm:py-4">
                   <div className="flex items-center gap-2 sm:gap-3 min-w-[160px]">
                     {rune.image_uri ? (
                       <Image
@@ -257,15 +257,15 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 </td>
 
                 {/* PRICE */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[180px]">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[180px]">
                   <div className="flex flex-col gap-2 sm:gap-[14px]">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.price.floor_unit_price_value).toFixed(6)}{" "}
+                      {parseFloat(rune.price.floor_unit_price_value).toFixed(2)}{" "}
                       BTC
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3">
                       <span className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                        ${parseFloat(rune.price.market_cap)}
+                        ${parseFloat(rune.price.market_cap).toFixed(2)}
                       </span>
                       <div className={`flex gap-1 items-center text-[#636363]`}>
                         <Image
@@ -295,8 +295,8 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 </td>
 
                 {/* VOLUME 24H */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[140px]">
-                  <div className="flex flex-col items-end">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                  <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {parseFloat(rune.volume.volume_1d).toFixed(2)} BTC
                     </div>
@@ -307,10 +307,10 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 </td>
 
                 {/* VOLUME 1H */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[140px]">
-                  <div className="flex flex-col items-end">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                  <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.volume.volume_1h)} BTC
+                      {parseFloat(rune.volume.volume_1h).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
                       ${parseInt(rune.volume.volume_1h)}
@@ -319,39 +319,39 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 </td>
 
                 {/* MARKET CAP */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[140px]">
-                  <div className="flex flex-col items-end">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                  <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {parseFloat(rune.price.market_cap).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                      ${parseFloat(rune.price.market_cap)}
+                      ${parseFloat(rune.price.market_cap).toFixed(2)}
                     </div>
                   </div>
                 </td>
 
                 {/* TRANSACTIONS COUNTS */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 text-right min-w-[100px]">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
                   <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                     {rune.transactions.txn_count_1d}
                   </span>
                 </td>
 
-                <td className="px-4 sm:px-6 py-3 sm:py-4 text-right min-w-[100px]">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
                   <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                     {rune.transactions.txn_count}
                   </span>
                 </td>
 
-                <td className="px-4 sm:px-6 py-3 sm:py-4 text-right min-w-[100px]">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
                   <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                     {rune.pending_count_tx}
                   </span>
                 </td>
 
                 {/* HOLDERS */}
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[120px]">
-                  <div className="flex flex-col items-center gap-1">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[120px]">
+                  <div className="flex flex-col items-start gap-1">
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune.holder_count.holder_count}
                     </span>
@@ -383,8 +383,8 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                   </div>
                 </td>
 
-                <td className="px-4 sm:px-6 py-3 sm:py-4 min-w-[120px]">
-                  <div className="flex flex-col items-center gap-1">
+                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[120px]">
+                  <div className="flex flex-col items-start gap-1">
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune.holder_count.smart_holders_count}
                     </span>
@@ -417,8 +417,8 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                 </td>
 
                 {/* BUY BUTTON - Sticky */}
-                <td className="sticky right-0   px-4 sm:px-6 py-3 sm:py-4">
-                  <button className="px-4 sm:px-6 py-1.5 sm:py-2 bg-[#FF5337] rounded-[8.41px] text-white font-harmony hover:bg-[#e64930] transition-colors duration-200 text-[12px] sm:text-[14px] whitespace-nowrap">
+                <td className="sticky right-0 px-4 sm:px-4 py-3 sm:py-4">
+                  <button className="px-4 sm:px-6 py-1.5 sm:py-[14.5px] bg-[#FF4100] rounded-[8.41px] text-white font-harmony hover:bg-[#e64930] transition-colors duration-200 text-[12px] sm:text-[15.78px] whitespace-nowrap">
                     Buy
                   </button>
                 </td>

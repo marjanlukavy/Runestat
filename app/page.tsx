@@ -24,12 +24,21 @@ const Home = async () => {
   //   loadStats();
   // }, []);
 
+  const btcPrice = await fetch("https://mempool.space/api/v1/prices");
+  const price = await btcPrice.json();
+
   const data = await fetchRuneTotals();
   const dataTable = await fetchRuneStats();
+
   return (
-    <div>
-      <TableAnalytic stats={data} loading={false} dataTable={dataTable} />;
-    </div>
+    <>
+      <TableAnalytic
+        stats={data}
+        loading={false}
+        dataTable={dataTable}
+        price={price.USD}
+      />
+    </>
   );
 };
 
