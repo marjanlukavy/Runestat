@@ -413,7 +413,10 @@ const RuneTable = ({
                         className="w-3 sm:w-[15.25px]"
                       />
                       <span className="text-[11px] sm:text-sm">
-                        {Math.abs(parseFloat(rune.price.delta_floor_1d))}%
+                        {Math.abs(
+                          parseFloat(rune.price.delta_floor_1d)
+                        ).toFixed(2)}
+                        %
                       </span>
                     </div>
                   </div>
