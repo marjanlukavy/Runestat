@@ -93,6 +93,9 @@ const TableAnalytic = ({
                     ? "..."
                     : `${formatBTC(stats?.total_volume_24h || "0")} BTC`}
                 </span>
+                <span className="text-[#656565] font-medium text-[14px] leading-[16.41px]">
+                  ${(price * (stats?.total_volume_24h as any)).toFixed(2)}
+                </span>
               </div>
 
               <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px]">
@@ -175,7 +178,7 @@ const TableAnalytic = ({
           </div>
         </div>
 
-        <RuneTable dataTable={dataTable} />
+        <RuneTable dataTable={dataTable} price={price} />
       </div>
       <FilterModal
         isOpen={isFilterModalOpen}

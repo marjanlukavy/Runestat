@@ -16,7 +16,13 @@ type SortField =
   | "smart_holders_count"
   | null;
 
-const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
+const RuneTable = ({
+  dataTable,
+  price,
+}: {
+  dataTable: RuneApiResponse;
+  price: number;
+}) => {
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>(null);
 
@@ -325,7 +331,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                       {parseFloat(rune.price.market_cap).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                      ${parseFloat(rune.price.market_cap).toFixed(2)}
+                      ${(parseFloat(rune.price.market_cap) * price).toFixed(2)}
                     </div>
                   </div>
                 </td>
@@ -407,10 +413,7 @@ const RuneTable = ({ dataTable }: { dataTable: RuneApiResponse }) => {
                         className="w-3 sm:w-[15.25px]"
                       />
                       <span className="text-[11px] sm:text-sm">
-                        {Math.abs(
-                          parseFloat(rune.price.delta_floor_1d)
-                        ).toFixed(2)}
-                        %
+                        {Math.abs(parseFloat(rune.price.delta_floor_1d))}%
                       </span>
                     </div>
                   </div>
