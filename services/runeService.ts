@@ -36,7 +36,9 @@ export interface RuneApiResponse {
 
 export const fetchRuneStats = async (): Promise<RuneApiResponse> => {
   try {
-    const response = await fetch("https://api.mosaikbtc.com/api/runes/stats");
+    const response = await fetch("https://api.mosaikbtc.com/api/runes/stats", {
+      cache: "no-store",
+    });
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

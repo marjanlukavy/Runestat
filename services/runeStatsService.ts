@@ -8,7 +8,9 @@ export interface RuneTotals {
 
 export const fetchRuneTotals = async (): Promise<RuneTotals> => {
   try {
-    const response = await fetch("https://api.mosaikbtc.com/api/runes/totals");
+    const response = await fetch("https://api.mosaikbtc.com/api/runes/totals", {
+      cache: "no-store",
+    });
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
