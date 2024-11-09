@@ -38,48 +38,49 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Rest of your code remains the same */}
-      <div className="hidden lg:block">
-        <TabSwitcher options={options} onChange={handleTabChange} />
-      </div>
+      <div className="flex items-center justify-between w-full max-w-[970px]">
+        <div className="hidden lg:block">
+          <TabSwitcher options={options} onChange={handleTabChange} />
+        </div>
 
-      <div
-        className={`
+        <div
+          className={`
         flex flex-col lg:flex-row gap-4 lg:gap-[42px]
         ${isMobileMenuOpen ? "flex" : "hidden lg:flex"}
       `}
-      >
-        <div className="relative w-full lg:w-auto">
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8D8D8D]">
-            <Image
-              src={"/icons/search.svg"}
-              alt={"Search"}
-              width={20}
-              height={20}
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full lg:w-[200px] h-[52px] bg-transparent rounded-full 
+        >
+          <div className="relative w-full lg:w-auto">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8D8D8D]">
+              <Image
+                src={"/icons/search.svg"}
+                alt={"Search"}
+                width={20}
+                height={20}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full lg:w-[200px] h-[40px] bg-transparent rounded-full 
               pl-12 pr-4 outline-none 
               text-white placeholder:text-[#8D8D8D] 
               font-harmony text-[15px] leading-[18.75px]
               border border-[#AFAFB0] focus:border-[#BC4F2A]
               transition-colors duration-200"
-          />
-        </div>
+            />
+          </div>
 
-        <button
-          className="w-full lg:w-auto px-[42px] h-[52px] bg-[#BC4F2A] rounded-full
+          <button
+            className="w-full lg:w-auto px-[42px] h-[40px] bg-[#BC4F2A] rounded-full
             text-white font-harmony text-[16px] leading-[18.75px]
             hover:bg-[#a34424] transition-colors duration-200 whitespace-nowrap"
-        >
-          Connect wallet
-        </button>
+          >
+            Connect wallet
+          </button>
 
-        <div className="lg:hidden">
-          <TabSwitcher options={options} onChange={handleTabChange} />
+          <div className="lg:hidden">
+            <TabSwitcher options={options} onChange={handleTabChange} />
+          </div>
         </div>
       </div>
     </header>
