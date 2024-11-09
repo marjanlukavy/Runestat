@@ -21,6 +21,25 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "nftstorage.link",
+        port: "",
+        pathname: "/ipfs/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.cdn.magiceden.dev",
+        port: "",
+        pathname: "/**",
+      },
+      // Added Magic Eden renderer domain
+      {
+        protocol: "https",
+        hostname: "renderer.magiceden.dev",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

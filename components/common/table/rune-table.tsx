@@ -199,7 +199,7 @@ const RuneTable = ({
 
               {/* HOLDERS */}
               <th className="text-center" colSpan={2}>
-                <div className="border-r border-[#222222] h-[73px]">
+                <div className="border- border-[#222222] h-[73px]">
                   <div className="flex justify-center gap-1 items-center py-[10px]">
                     <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                       HOLDERS
@@ -231,14 +231,15 @@ const RuneTable = ({
               </th>
             </tr>
           </thead>
+
           <tbody>
             {getSortedData()?.map((rune, index) => (
               <tr
                 key={`${rune.rune_name}-${index}`}
-                className="border-b bg-[#131718] border-[#222222] transition-colors duration-200 group shadow-row"
+                className="bg-[#131718]  transition-colors duration-200 group shadow-row h-[98px]"
               >
                 {/* RUNE - Sticky Column */}
-                <td className=" px-4 sm:px-4 py-3 sm:py-4">
+                <td className="py-5 pl-[16.83px]">
                   <div className="flex items-center gap-2 sm:gap-3 min-w-[160px]">
                     {rune.image_uri ? (
                       <Image
@@ -263,25 +264,27 @@ const RuneTable = ({
                 </td>
 
                 {/* PRICE */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[180px]">
+                <td className="py-5 pl-[12.19px] min-w-[180px]">
                   <div className="flex flex-col gap-2 sm:gap-[14px]">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.price.floor_unit_price_value).toFixed(2)}{" "}
+                      {parseFloat(rune?.price?.floor_unit_price_value).toFixed(
+                        2
+                      )}{" "}
                       BTC
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3">
                       <span className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                        ${parseFloat(rune.price.market_cap).toFixed(2)}
+                        ${parseFloat(rune?.price?.market_cap).toFixed(2)}
                       </span>
                       <div className={`flex gap-1 items-center text-[#636363]`}>
                         <Image
                           src={
-                            parseFloat(rune.price.delta_floor_1d) > 0
+                            parseFloat(rune?.price?.delta_floor_1d) > 0
                               ? "/icons/high.svg"
                               : "/icons/low.svg"
                           }
                           alt={
-                            parseFloat(rune.price.delta_floor_1d) > 0
+                            parseFloat(rune?.price?.delta_floor_1d) > 0
                               ? "high"
                               : "low"
                           }
@@ -291,7 +294,7 @@ const RuneTable = ({
                         />
                         <span className="text-[11px] sm:text-sm">
                           {Math.abs(
-                            parseFloat(rune.price.delta_floor_1d)
+                            parseFloat(rune?.price?.delta_floor_1d)
                           ).toFixed(2)}
                           %
                         </span>
@@ -301,62 +304,69 @@ const RuneTable = ({
                 </td>
 
                 {/* VOLUME 24H */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                <td className="py-5 pl-[16.8px] min-w-[140px]">
                   <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.volume.volume_1d).toFixed(2)} BTC
+                      {parseFloat(rune?.volume?.volume_1d).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                      ${parseInt(rune.volume.volume_1d)}
+                      ${parseInt(rune?.volume?.volume_1d)}
                     </div>
                   </div>
                 </td>
 
                 {/* VOLUME 1H */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                <td className="py-5 pl-[16.8px] min-w-[140px]">
                   <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.volume.volume_1h).toFixed(2)} BTC
+                      {parseFloat(rune?.volume?.volume_1h).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                      ${parseInt(rune.volume.volume_1h)}
+                      ${parseInt(rune?.volume?.volume_1h)}
                     </div>
                   </div>
                 </td>
 
                 {/* MARKET CAP */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[140px]">
+                <td className="py-5 pl-[16.8px] min-w-[140px]">
                   <div className="flex flex-col items-start">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {parseFloat(rune.price.market_cap).toFixed(2)} BTC
+                      {parseFloat(rune?.price?.market_cap).toFixed(2)} BTC
                     </div>
                     <div className="text-[#8D8D8D] text-[11px] sm:text-sm">
-                      ${(parseFloat(rune.price.market_cap) * price).toFixed(2)}
+                      $
+                      {(parseFloat(rune?.price?.market_cap) * price).toFixed(2)}
                     </div>
                   </div>
                 </td>
 
                 {/* TRANSACTIONS COUNTS */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
-                  <span className="text-white font-harmony text-[13px] sm:text-[14px]">
-                    {rune.transactions.txn_count_1d}
-                  </span>
+                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                  <div>
+                    <span className="text-white font-harmony text-[13px] sm:text-[14px]">
+                      {rune?.transactions?.txn_count_1d}
+                    </span>
+                  </div>
                 </td>
 
-                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
-                  <span className="text-white font-harmony text-[13px] sm:text-[14px]">
-                    {rune.transactions.txn_count}
-                  </span>
+                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                  <div>
+                    <span className="text-white font-harmony text-[13px] sm:text-[14px]">
+                      {rune?.transactions?.txn_count}
+                    </span>
+                  </div>
                 </td>
 
-                <td className="px-4 sm:px-4 py-3 sm:py-4 text-left min-w-[100px]">
-                  <span className="text-white font-harmony text-[13px] sm:text-[14px]">
-                    {rune.pending_count_tx}
-                  </span>
+                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                  <div>
+                    <span className="text-white font-harmony text-[13px] sm:text-[14px]">
+                      {rune?.pending_count_tx}
+                    </span>
+                  </div>
                 </td>
 
                 {/* HOLDERS */}
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[120px]">
+                <td className="py-5 pl-[16.8px] min-w-[120px]">
                   <div className="flex flex-col items-start gap-1">
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune.holder_count.holder_count}
@@ -366,12 +376,12 @@ const RuneTable = ({
                     >
                       <Image
                         src={
-                          parseFloat(rune.price.delta_floor_7d) > 0
+                          parseFloat(rune?.price?.delta_floor_7d) > 0
                             ? "/icons/high.svg"
                             : "/icons/low.svg"
                         }
                         alt={
-                          parseFloat(rune.price.delta_floor_7d) > 0
+                          parseFloat(rune?.price?.delta_floor_7d) > 0
                             ? "high"
                             : "low"
                         }
@@ -381,7 +391,7 @@ const RuneTable = ({
                       />
                       <span className="text-[11px] sm:text-sm">
                         {Math.abs(
-                          parseFloat(rune.price.delta_floor_7d)
+                          parseFloat(rune?.price?.delta_floor_7d)
                         ).toFixed(2)}
                         %
                       </span>
@@ -389,22 +399,22 @@ const RuneTable = ({
                   </div>
                 </td>
 
-                <td className="px-4 sm:px-4 py-3 sm:py-4 min-w-[120px]">
+                <td className="py-5 pl-[16.8px] min-w-[120px]">
                   <div className="flex flex-col items-start gap-1">
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
-                      {rune.holder_count.smart_holders_count}
+                      {rune?.holder_count?.smart_holders_count}
                     </span>
                     <div
                       className={`gap-1 sm:gap-[6px] flex items-center text-[#636363]`}
                     >
                       <Image
                         src={
-                          parseFloat(rune.price.delta_floor_1d) > 0
+                          parseFloat(rune?.price?.delta_floor_1d) > 0
                             ? "/icons/high.svg"
                             : "/icons/low.svg"
                         }
                         alt={
-                          parseFloat(rune.price.delta_floor_1d) > 0
+                          parseFloat(rune?.price?.delta_floor_1d) > 0
                             ? "high"
                             : "low"
                         }
@@ -414,7 +424,7 @@ const RuneTable = ({
                       />
                       <span className="text-[11px] sm:text-sm">
                         {Math.abs(
-                          parseFloat(rune.price.delta_floor_1d)
+                          parseFloat(rune?.price?.delta_floor_1d)
                         ).toFixed(2)}
                         %
                       </span>
@@ -423,8 +433,8 @@ const RuneTable = ({
                 </td>
 
                 {/* BUY BUTTON - Sticky */}
-                <td className="sticky right-0 px-4 sm:px-4 py-3 sm:py-4">
-                  <button className="px-4 sm:px-6 py-1.5 sm:py-[14.5px] bg-[#FF4100] rounded-[8.41px] text-white font-harmony hover:bg-[#e64930] transition-colors duration-200 text-[12px] sm:text-[15.78px] whitespace-nowrap">
+                <td className="px-[16.3px] sticky right-0 py-5">
+                  <button className="px-4 sm:px-6 py-1.5 sm:py-[14.5px] sm:h-[50px] grid place-content-center bg-[#FF4100] rounded-[8.41px] text-white font-harmony hover:bg-[#e64930] transition-colors duration-200 text-[12px] sm:text-[15.78px] whitespace-nowrap">
                     Buy
                   </button>
                 </td>

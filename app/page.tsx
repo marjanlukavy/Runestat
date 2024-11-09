@@ -4,27 +4,6 @@ import TableAnalytic from "@/components/pages/home";
 import { fetchRuneStats } from "@/services/runeService";
 
 const Home = async () => {
-  // const [stats, setStats] = useState<RuneTotals | null>(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState<string | null>(null);
-
-  // useEffect(() => {
-  //   const loadStats = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await fetchRuneTotals();
-  //       setStats(data);
-  //     } catch (err) {
-  //       setError("Failed to load statistics");
-  //       console.error(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   loadStats();
-  // }, []);
-
   const btcPrice = await fetch("https://mempool.space/api/v1/prices", {
     cache: "no-store",
   });
