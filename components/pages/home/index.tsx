@@ -163,7 +163,7 @@ const TableAnalytic = ({
 
             <button
               onClick={() => setIsFilterModalOpen(true)}
-              className="flex w-full items-center justify-center gap-3 bg-[#1B1F22] rounded-[27px] w-full 2xl:w-auto 2xl:self-center py-3 px-6 max-w-[192px]"
+              className="flex w-full items-center justify-center gap-3 bg-[#1B1F22] rounded-[27px] w-full 2xl:w-auto 2xl:self-center py-3 px-6"
             >
               <Image
                 src={"/icons/equalizer.svg"}
