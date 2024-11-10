@@ -137,7 +137,7 @@ const RuneTable = ({
 
               {/* PRICE */}
               <th className="text-left font-normal">
-                <div className="flex items-center gap-2 px-4 h-[73px]">
+                <div className="flex items-center gap-2 px-4 h-[73px] max-w-[173px]">
                   <span className="font-medium text-[13px] sm:text-[15px] leading-[17.58px] text-white">
                     PRICE
                   </span>
@@ -240,7 +240,7 @@ const RuneTable = ({
               >
                 {/* RUNE - Sticky Column */}
                 <td className="py-5 pl-[16.83px]">
-                  <div className="flex items-center gap-2 sm:gap-3 min-w-[160px]">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-[160px] max-w-[322px] ">
                     {rune.image_uri ? (
                       <Image
                         src={rune.image_uri}
@@ -264,8 +264,8 @@ const RuneTable = ({
                 </td>
 
                 {/* PRICE */}
-                <td className="py-5 pl-[12.19px] min-w-[180px]">
-                  <div className="flex flex-col gap-2 sm:gap-[14px]">
+                <td className="py-5 pl-[12.19px] max-w-[173px]">
+                  <div className="flex flex-col gap-2 sm:gap-[14px] max-w-[173px]">
                     <div className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {parseFloat(rune?.price?.floor_unit_price_value).toFixed(
                         2
