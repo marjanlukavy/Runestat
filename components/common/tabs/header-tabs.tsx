@@ -26,7 +26,7 @@ const TabSwitcher = ({
 
   return (
     <div
-      className="flex bg-[#13171B] rounded-[29px] w-fit"
+      className="flex bg-[#13171B] rounded-[29px] w-fit gap-[6px]"
       style={{ height: "43px" }}
     >
       {options.map((option) => (

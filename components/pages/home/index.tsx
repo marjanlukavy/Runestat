@@ -32,14 +32,14 @@ const TableAnalytic = ({
     setIsFilterModalOpen(false);
   };
   return (
-    <div className="max-w-[1722px] mx-auto w-full px-4">
+    <div className="max-w-[1722px] mx-auto w-full px-4 2xl:px-0">
       <Header />
 
       <div className="flex flex-col gap-[25px] mt-[30px] pb-[100px]">
-        <div className="w-full bg-[#13171B] rounded-[13px] flex max-w-[448px]">
+        <div className="w-full bg-[#13171B] rounded-[13px] flex max-w-[484px]">
           <button
             onClick={() => setSelectedTab("runes")}
-            className={`flex-1 py-4 px-6 rounded-[13px] text-center transition-all duration-200
+            className={`flex-1 py-4 px-6 rounded-[13px] max-w-[240px] w-full text-center transition-all duration-200
         ${
           selectedTab === "runes"
             ? "bg-[#BC4F2A] text-white"
@@ -84,7 +84,7 @@ const TableAnalytic = ({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 2xl:flex 2xl:flex-row gap-4 2xl:gap-[33px]">
-              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px]">
+              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px] min-w-[195px]">
                 <span className="text-[#656565] font-medium text-[14px] leading-[16.41px]">
                   24 H
                 </span>
@@ -112,7 +112,7 @@ const TableAnalytic = ({
                 </span>
               </div>
 
-              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px]">
+              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px] max-w-[192px]">
                 <span className="text-[#656565] font-medium text-[14px] leading-[16.41px] uppercase">
                   market cap
                 </span>
@@ -163,7 +163,7 @@ const TableAnalytic = ({
 
             <button
               onClick={() => setIsFilterModalOpen(true)}
-              className="flex items-center justify-center gap-3 bg-[#1B1F22] rounded-[27px] w-full 2xl:w-auto 2xl:self-center py-3 px-6 max-w-[192px]"
+              className="flex w-full items-center justify-center gap-3 bg-[#1B1F22] rounded-[27px] w-full 2xl:w-auto 2xl:self-center py-3 px-6 max-w-[192px]"
             >
               <Image
                 src={"/icons/equalizer.svg"}
