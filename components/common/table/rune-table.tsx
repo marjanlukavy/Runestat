@@ -213,7 +213,7 @@ const RuneTable = ({
               </th>
 
               {/* Settings */}
-              <th className="sticky right-0 bg-[#13171B] z-30">
+              <th className="bg-[#13171B] z-30">
                 <div className="flex justify-center p-2 h-[73px]">
                   <button className="flex items-center justify-center gap-1 md:gap-3 bg-[#1B1F22] rounded-[27px] w-full self-center p-2  md:p-3 max-w-[103px]">
                     <div className="relative md:size-4 size-3 md:block hidden">
@@ -433,7 +433,7 @@ const RuneTable = ({
                 </td>
 
                 {/* BUY BUTTON - Sticky */}
-                <td className="px-[16.3px] sticky right-0 py-5">
+                <td className="px-[16.3px]  py-5">
                   <button className="px-4 sm:px-6 py-1.5 sm:py-[14.5px] sm:h-[50px] grid place-content-center bg-[#FF4100] rounded-[8.41px] text-white font-harmony hover:bg-[#e64930] transition-colors duration-200 text-[12px] sm:text-[15.78px] whitespace-nowrap">
                     Buy
                   </button>
