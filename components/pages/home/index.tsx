@@ -113,7 +113,7 @@ const TableAnalytic = ({
                 </span>
               </div>
 
-              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px] max-w-[192px]">
+              <div className="bg-[#1B1F22] rounded-[9px] py-[20.5px] px-[15px] flex flex-col gap-[11px] min-w-[192px]">
                 <span className="text-[#656565] font-medium text-xs 2xl:text-[14px] leading-[16.41px] uppercase">
                   market cap
                 </span>
