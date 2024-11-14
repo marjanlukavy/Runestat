@@ -32,7 +32,7 @@ const TableAnalytic = ({
     setIsFilterModalOpen(false);
   };
   return (
-    <div className="max-w-[1722px] mx-auto w-full px-4">
+    <div className="max-w-[1600px] mx-auto w-full px-4">
       <Header />
 
       <div className="flex flex-col gap-[25px] mt-[30px] pb-[100px]">

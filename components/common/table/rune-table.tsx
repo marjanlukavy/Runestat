@@ -236,11 +236,11 @@ const RuneTable = ({
             {getSortedData()?.map((rune, index) => (
               <tr
                 key={`${rune.rune_name}-${index}`}
-                className="bg-[#131718]  transition-colors duration-200 group shadow-row h-[98px]"
+                className="bg-[#131718]  transition-colors duration-200 group shadow-row "
               >
                 {/* RUNE - Sticky Column */}
                 <td className="py-5 pl-[16.83px]">
-                  <div className="flex items-center gap-2 sm:gap-3 min-w-[160px] max-w-[322px] ">
+                  <div className="flex items-center gap-2 sm:gap-3  max-w-[222px] ">
                     {rune.image_uri ? (
                       <Image
                         src={rune.image_uri}
@@ -253,7 +253,7 @@ const RuneTable = ({
                       <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg" />
                     )}
                     <div className="flex flex-col">
-                      <span className="text-white font-harmony font-bold text-[13px] sm:text-[14.72px] leading-tight sm:leading-[17.26px] truncate max-w-[120px] sm:max-w-none">
+                      <span className="text-white break-all font-harmony font-bold text-[13px] sm:text-[14.72px] leading-tight sm:leading-[17.26px]  ">
                         {rune.rune_name}
                       </span>
                       <span className="text-[#656565] text-[11px] sm:text-[12.62px] leading-tight sm:leading-[14.79px] font-medium font-harmony">
@@ -341,7 +341,7 @@ const RuneTable = ({
                 </td>
 
                 {/* TRANSACTIONS COUNTS */}
-                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                <td className="py-5 pl-[16.8px] text-left min-w-[106px]">
                   <div>
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune?.transactions?.txn_count_1d}
@@ -349,7 +349,7 @@ const RuneTable = ({
                   </div>
                 </td>
 
-                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                <td className="py-5 pl-[16.8px] text-left min-w-[106px]">
                   <div>
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune?.transactions?.txn_count}
@@ -357,7 +357,7 @@ const RuneTable = ({
                   </div>
                 </td>
 
-                <td className="py-5 pl-[16.8px] text-left min-w-[126px]">
+                <td className="py-5 pl-[16.8px] text-left min-w-[106px]">
                   <div>
                     <span className="text-white font-harmony text-[13px] sm:text-[14px]">
                       {rune?.pending_count_tx}
